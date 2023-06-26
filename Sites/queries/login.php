@@ -1,10 +1,17 @@
 <?php
 session_start();
+$msg = $_GET['msg'];
 include('../templates/header.html');
-
-if (isset($_SESSION['username'])) {
-    echo "<h2 class='subtitle'>Bienvenido, {$_SESSION['username']}!</h2>";
-} else{
-    echo "<h2 class='subtitle'>No hay usuario</h2>";
-}
 ?>
+
+<body>
+	<h3> Ingrese nombre de usuario y contraseña </h3>
+	<br>
+    <form class="form-signin" role="form" action="login_validation.php" method="post">
+        <?php echo $msg; ?>
+        <input type="text" name="username" placeholder="nombre de usuario" required autofocus>
+        <input type="password" name="password" placeholder="contraseña" required>
+        <button type="submit" name="login"> Iniciar sesión </button>
+    </form>
+
+</body>

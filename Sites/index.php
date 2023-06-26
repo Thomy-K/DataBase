@@ -1,15 +1,29 @@
 <?php
+
 session_start();
+if (isset($_SESSION['username'])) {
+    echo "Bienvenido/a: ";
+    echo $_SESSION['username'];
+}
+
 include('./templates/header.html');
-$_SESSION['username'] = 'grupo998';
+
 ?>
     <body>
         <div class='main'>
             <h1 class='title'>Pókemon </h1>
 
-            <form  action='./queries/login.php' method='GET'>
+
+            <?php if (!isset($_SESSION['username'])) { ?>
+                <form  action='./queries/login.php' method='GET'>
                     <input class='btn' type='submit' value='Usuario'>
-            </form>
+                </form>
+
+            <?php } else { ?>
+                <form action='./queries/logout.php' method="post">
+                    <input type="submit" value="Cerrar sesión">
+                </form>
+            <?php } ?>
 
             <div class='container'>
                 <h3>Ver base de datos 1</h3>
