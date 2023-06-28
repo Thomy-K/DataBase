@@ -3,50 +3,54 @@
     <body>
     <?php
 
+
         require("../config/conexion.php");
         include('../templates/header.html');
-    
-        $query = "SELECT id, nombre FROM clientes WHERE id NOT IN (SELECT id FROM usuarios);";
-        $result = $db -> prepare($query);
-        $result -> execute();
-        $clientes = $result -> fetchAll();
-        $tipo_cliente = 'Cliente';
-        foreach ($clientes as $cliente) {
-            $id_cliente = $cliente['id'];
-            $username = $cliente['nombre'];
-            $password = $cliente['nombre'] . $id_cliente; 
-
-            $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, $username, $password, $tipo_cliente);";
+        
+        try {
+            $query = "SELECT id, nombre FROM clientes WHERE id NOT IN (SELECT id FROM usuarios);";
             $result = $db -> prepare($query);
             $result -> execute();
-        }
+            $clientes = $result -> fetchAll();
+            $tipo_cliente = 'Cliente';
+            foreach ($clientes as $cliente) {
+                $id_cliente = $cliente['id'];
+                $username = $cliente['nombre'];
+                $password = $cliente['nombre'] . $id_cliente; 
 
-        $query = "SELECT MAX(id) AS max_id FROM usuarios;";
-        $result = $db -> prepare($query);
-        $result -> execute();
-        $idmax = $result -> fetchColumn();
+                $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, $username, $password, $tipo_cliente);";
+                $result = $db -> prepare($query);
+                $result -> execute();
+            }
 
-        $query = "SELECT COUNT(*) FROM usuarios WHERE tipo = 'Admin';";
-        $result = $db -> prepare($query);
-        $result -> execute();
-        $count = $result -> fetchColumn();
-
-        $nombre_admin = 'ADMIN';
-        $tipo_admin = 'Admin';
-        $password_admin =  'admin';
-
-        if ($count == 0) {
-            $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_max+1, $nombre_admin, $password_admin, $tipo_admin);";
+            $query = "SELECT MAX(id) AS max_id FROM usuarios;";
             $result = $db -> prepare($query);
             $result -> execute();
+            $idmax = $result -> fetchColumn();
+
+            $query = "SELECT COUNT(*) FROM usuarios WHERE tipo = 'Admin';";
+            $result = $db -> prepare($query);
+            $result -> execute();
+            $count = $result -> fetchColumn();
+
+            $nombre_admin = 'ADMIN';
+            $tipo_admin = 'Admin';
+            $password_admin =  'admin';
+
+            if ($count == 0) {
+                $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_max+1, $nombre_admin, $password_admin, $tipo_admin);";
+                $result = $db -> prepare($query);
+                $result -> execute();
+            }
+
+
+            $query = "SELECT * FROM usuarios ORDER BY id DESC;";
+            $result = $db -> prepare($query);
+            $result -> execute();
+            $usuarios = $result -> fetchAll();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
         }
-
-
-        $query = "SELECT * FROM usuarios ORDER BY id DESC;";
-        $result = $db -> prepare($query);
-        $result -> execute();
-        $usuarios = $result -> fetchAll();
-
     ?>
 
     
