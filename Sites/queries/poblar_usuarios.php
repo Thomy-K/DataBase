@@ -1,5 +1,6 @@
 <html>
-    
+
+    <body>
     <?php
 
         require("../config/conexion.php");
@@ -48,28 +49,28 @@
 
     ?>
 
-    <body>
-        <table class='table'>
-            <thead>
-                <tr>
-                <th>Id</th>
-                <th>Nombre de usuario</th>
-                <th>Contraseña</th>
-                <th>Tipo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($usuarios as $usuario) {
-                    echo "<tr>";
-                    for ($i = 0; $i < 4; $i++) {
-                        echo "<td>$usuario[$i]</td> ";
-                    }
-                    echo "</tr>";
+    
+    <table class='table'>
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Nombre de usuario</th>
+            <th>Contraseña</th>
+            <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            foreach ($usuarios as $usuario) { 
+                echo "<tr>";
+                for ($i = 0; $i < 4; $i++) {
+                    echo "<td>$usuario[$i]</td> ";
                 }
-                ?>
-            </tbody>
-        </table>
+                echo "</tr>";
+            } 
+            ?>
+        </tbody>
+    </table>
     </body>
 
 </html>

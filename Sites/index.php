@@ -10,10 +10,9 @@ include('./templates/header.html');
 
             
             <div class='container'>
-                <h3>Importar usuarios</h3>
-                <form  action='./queries/poblar_usuarios.php' method='GET'>
-                    <input class='btn' type='submit' value='Importar'>
-                </form>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="./queries/poblar_usuarios.php" color="white">Importar Usuarios</a>
+                </li>
             </div>
 
 
