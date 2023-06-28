@@ -20,7 +20,7 @@ include('./templates/header.html');
 
             <?php if (!isset($_SESSION['username'])) { ?>
                 <form  action='./queries/login.php' method='GET'>
-                    <input class='btn' type='submit' value='Usuario'>
+                    <input class='btn' type='submit' value='Iniciar sesión'>
                 </form>
 
             <?php } else { ?>
