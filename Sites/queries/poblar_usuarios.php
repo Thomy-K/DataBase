@@ -18,7 +18,7 @@
                 $username = $cliente['nombre'];
                 $password = $cliente['nombre'] . $id_cliente; 
 
-                $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, $username, $password, $tipo_cliente);";
+                $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, '$username', '$password', '$tipo_cliente');";
                 $result = $db -> prepare($query);
                 $result -> execute();
             }
@@ -38,7 +38,7 @@
             $password_admin =  'admin';
 
             if ($count == 0) {
-                $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_max+1, $nombre_admin, $password_admin, $tipo_admin);";
+                $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_max+1, '$nombre_admin', '$password_admin', '$tipo_admin');";
                 $result = $db -> prepare($query);
                 $result -> execute();
             }
