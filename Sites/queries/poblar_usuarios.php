@@ -16,14 +16,14 @@
             foreach ($clientes as $cliente) {
                 $id_cliente = $cliente['id'];
                 $username = $cliente['nombre'];
-                $password = $cliente['nombre'] . $id_cliente; 
+                $password = 'clave' . $id_cliente; 
 
                 $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, '$username', '$password', '$tipo_cliente');";
                 $result = $db -> prepare($query);
                 $result -> execute();
             }
 
-            $query = "SELECT MAX(id) AS max_id FROM usuarios;";
+            $query = "SELECT MAX(id) AS max_id FROM clientes;";
             $result = $db -> prepare($query);
             $result -> execute();
             $idmax = $result -> fetchColumn();
