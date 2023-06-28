@@ -2,6 +2,8 @@ CREATE OR REPLACE FUNCTION
 rellenar_usuarios()
 
 DECLARE
+id_cliente int;
+nombre_cliente varchar;
 idmax int;
 contra varchar;
 tipo_usuario varchar;

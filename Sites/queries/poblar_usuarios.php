@@ -7,8 +7,13 @@
     $query = "SELECT rellenar_usuarios();";    
     $result = $db -> prepare($query);
     $result -> execute();
-    $result -> fetchAll();
+    #$result -> fetchAll();
+    
 
+    $query = "SELECT * FROM usuarios ORDER BY id DESC;";
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $usuarios = $result -> fetchAll();
 ?>
 
 <html>
