@@ -11,7 +11,16 @@ include('./templates/header.html');
 ?>
     <body>
         <div class='main'>
-            <h1 class='title'>Pókemon </h1>
+            <h1 class='title'>Entrega 3 </h1>
+
+            
+            <div class='container'>
+                <h3>Importar usuarios</h3>
+                <form  action='./queries/poblar_usuarios.php' method='GET'>
+                    <input class='btn' type='submit' value='Importar'>
+                </form>
+            </div>
+
 
 
             <?php if (!isset($_SESSION['username'])) { ?>
@@ -24,6 +33,9 @@ include('./templates/header.html');
                     <input type="submit" value="Cerrar sesión">
                 </form>
             <?php } ?>
+
+
+
 
             <div class='container'>
                 <h3>Ver base de datos 1</h3>
