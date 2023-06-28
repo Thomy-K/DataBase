@@ -1,8 +1,10 @@
 CREATE OR REPLACE FUNCTION
-rellenar_usuarios(id_cliente int, nombre_cliente varchar(60))
+rellenar_usuarios()
 
 DECLARE
 idmax int;
+contra varchar;
+tipo_usuario varchar;
 
 BEGIN
 
@@ -22,7 +24,7 @@ BEGIN
         SET tipo_usuario = 'Cliente';
 
         -- Insertar en la tabla Usuarios
-        INSERT INTO usuarios (id, contrasena, tipo_usuario) VALUES (id_cliente, contra, tipo_usuario);
+        INSERT INTO usuarios (id, contrasena, rol) VALUES (id_cliente, contra, tipo_usuario);
         
         -- Leer el siguiente registro
         FETCH curClientes INTO id_cliente, nombre_cliente;

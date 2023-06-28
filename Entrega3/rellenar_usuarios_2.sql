@@ -4,7 +4,7 @@ rellenar_usuarios_2(id_cliente int, nombre_cliente varchar(60), rol varchar(7))
 RETURNS BOOLEAN AS $$
 
 DECLARE
-contra VARCHAR;
+contra varchar;
 
 BEGIN
     
