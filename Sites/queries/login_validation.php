@@ -15,7 +15,7 @@
         $_SESSION['password'] = $_POST['password'];
 
         $msg = "Sesión iniciada correctamente";
-        header("Location: ../index.php?msg=$msg");
+        #header("Location: ../index.php?msg=$msg");
 
         // Realizar la verificación del tipo de usuario en la base de datos
         $query = "SELECT tipo FROM usuarios WHERE username = :username";
