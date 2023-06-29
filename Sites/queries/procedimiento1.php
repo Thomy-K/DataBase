@@ -38,7 +38,7 @@
     $pokemons = $result -> fetchAll();
 
 ?>
-
+<html>
     <body>
         <table class='table'>
             <thead>
