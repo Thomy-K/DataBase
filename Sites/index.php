@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 include('./templates/header.html');
 
 ?>
@@ -28,7 +28,8 @@ include('./templates/header.html');
                     <input type="submit" value="Cerrar sesión">
                 </form>
             <?php } ?>
-
+     
+  
 
 
 

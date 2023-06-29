@@ -15,7 +15,7 @@
             $tipo_cliente = 'Cliente';
             foreach ($clientes as $cliente) {
                 $id_cliente = $cliente['id'];
-                $username = $cliente['nombre'];
+                $username = 'user' . $id_cliente;
                 $password = 'clave' . $id_cliente; 
 
                 $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, '$username', '$password', '$tipo_cliente');";
