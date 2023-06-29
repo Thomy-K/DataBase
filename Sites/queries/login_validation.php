@@ -8,7 +8,7 @@
         $msg = '';
         if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password']))
         {
-            $rut = $_POST['username'];
+            $username = $_POST['username'];
             $user_password = $_POST['password'];
             $_SESSION['valid'] = true;
             $_SESSION['timeout'] = time();
@@ -30,18 +30,19 @@
 
                 if ($tipo_usuario == 'Admin') {
                     // El usuario es un administrador, redirigir a admin.php
-                    header("Location: ../admin.php");
+                    header("Location: ../admin.php?msg=$msg");
                     exit();
                 } else {
                     // El usuario es un cliente, redirigir a clientes.php
-                    header("Location: ../cliente.php");
+                    header("Location: ../cliente.php?msg=$msg");
                     exit();
                 }
-            } else {
+            } 
+            else {
                 // Las credenciales son válidas pero no se pudo obtener el tipo de usuario
                 $msg = "Error al obtener el tipo de usuario";
                 $_SESSION['msg'] = $msg;
-                header("Location: ./login.php");
+                header("Location: ./login.php?msg=$msg");
                 exit();
             }
 
