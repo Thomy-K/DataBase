@@ -17,7 +17,7 @@ require("../config/conexion.php");
                 $result -> execute();
                 $regiones = $result -> fetchAll();
                 ?>
-                <?php if ($regiones) { ?>
+                <?php if ($regiones) { #se despliegan todaas las regiones posibles y luego se envia la elegida a tiendas_region.php?>
                     <div class='form-element'>
                         <label for='region'>Región de la tienda</label>
                         <select name='region' id='region'>

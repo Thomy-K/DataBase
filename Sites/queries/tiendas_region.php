@@ -12,7 +12,9 @@
         session_start();
         require("../config/conexion.php");
         include('../templates/header.html');
-        
+        #se buscan todas las tiendas de la region luego abajo en la tabla se 
+        #listan sus datos junto a un boton que es pa enviar el id de la tienda a productos_tienda.php
+        #y ahi de nuevo desplegar un menu de opciones para elegir el tipo de producto
         try {
             $region_seleccionada = $_POST['region']
             $query = "SELECT tiendas.id, tiendas.telefono, tiendas.calle, 

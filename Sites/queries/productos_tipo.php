@@ -12,6 +12,7 @@
         session_start();
         require("../config/conexion.php");
         include('../templates/header.html');
+        #Aqui hay que mostrar todos los productos segun el tipo que se recibio y agregar la opcion de cambiar la oferta y el stock
         
         try {
             $opcion_seleccionada = $_POST['tipo'];
