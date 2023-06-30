@@ -38,7 +38,7 @@
         }
     ?>
 
-    <table class='table'>
+    <table class='table' style="border-collapse: separate; border-spacing: 10px;">
         <thead>
             <tr>
             <th>Id</th>
