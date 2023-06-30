@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION
 
 -- declaramos la función y sus argumentos
-update_stock (n_cantidad int, id_tienda int, id_producto int)
+update_stock (n_cantidad int, id_t int, id_p int)
 
 -- declaramos lo que retorna, en este caso un booleano
 RETURNS BOOLEAN AS $$
@@ -12,9 +12,8 @@ RETURNS BOOLEAN AS $$
 BEGIN
     -- si el id en el argumento no está en la tabla, agregamos el pokemon
     -- notar que ahora debemos agregar el dato de la columna generation en el values a insertar
-    IF id_producto IN (SELECT id_producto from stock) THEN
-        IF id_tienda IN (SELECT id_tienda from stock) THEN
-            UPDATE stock SET cantidad = n_cantidad WHERE id_tienda = id_tienda AND id_producto = id_producto;
+    IF id_p IN (SELECT id_producto from stock where id_tienda = id_t) THEN
+        UPDATE stock SET cantidad = n_cantidad WHERE id_tienda = id_t AND id_producto = id_p;
         -- retornamos true si se agregó el valor
         RETURN TRUE;
     ELSE
