@@ -11,12 +11,14 @@ $tipo = $_GET['tipo'];
     <body>
         <h1 class='title'> Ingrese la nueva oferta del producto </h1>
         <br>
-        <form class="form-signin" role="form" action="./cambiar_oferta.php" method="POST">
-            <input type="number" name="oferta" placeholder="Oferta" required autofocus>
-            <input type="hidden" name="id_producto" value="<?php echo $id_producto; ?>">
-            <input type="hidden" name="id_tienda" value="<?php echo $id_tienda; ?>">
-            <input type="hidden" name="tipo" value="<?php echo $tipo; ?>">
-            <button type="submit" name="Actualizar">Nueva oferta</button>
-        </form>
+        <div class='container'>
+            <form class="form-signin" role="form" action="./cambiar_oferta.php" method="POST">
+                <input type="number" name="oferta" placeholder="Oferta" required autofocus>
+                <input type="hidden" name="id_producto" value="<?php echo $id_producto; ?>">
+                <input type="hidden" name="id_tienda" value="<?php echo $id_tienda; ?>">
+                <input type="hidden" name="tipo" value="<?php echo $tipo; ?>">
+                <button type="submit" name="Actualizar">Nueva oferta</button>
+            </form>
+        </div>
     </body>
 </html>

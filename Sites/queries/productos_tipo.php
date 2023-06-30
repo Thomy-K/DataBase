@@ -61,8 +61,8 @@
                 for ($i = 0; $i < 9; $i++) {
                     echo "<td>$producto[$i]</td> ";
                 }
-                echo "<td><a href='form_actualizar_stock.php?id_producto={$producto[0]}&id_tienda={$producto[7]}&tipo={$producto[6]}' class='button'>Actualizar Stock</a></td>";
-                echo "<td><a href='form_actualizar_oferta.php?id_producto={$producto[0]}&id_tienda={$producto[7]}&tipo={$producto[6]}' class='button'>Actualizar Oferta</a></td>";
+                echo "<td><a href='form_actualizar_stock.php?id_producto={$producto[0]}&id_tienda={$producto[7]}&tipo={$producto[6]}' class='btn'>Actualizar Stock</a></td>";
+                echo "<td><a href='form_actualizar_oferta.php?id_producto={$producto[0]}&id_tienda={$producto[7]}&tipo={$producto[6]}' class='btn'>Actualizar Oferta</a></td>";
                 echo "</tr>";
             }
             ?>
