@@ -82,6 +82,11 @@
             ?>
         </tbody>
     </table>
+
+    <div class='container'>
+        <a href="./index.php" class="btn">Volver atrás</a>
+    </div>
+
     </body>
 
 </html>
