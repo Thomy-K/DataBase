@@ -1,11 +1,11 @@
 <?php
 session_start();
 include('./templates/header.html');
-require("../config/conexion.php");
+require("./config/conexion.php");
 ?>
 
     <body>
-        
+
         <h1 class='title'> Ofertas y stock </h1>
 
         <br>
@@ -21,14 +21,14 @@ require("../config/conexion.php");
                     <div class='form-element'>
                         <label for='region'>Región de la tienda</label>
                         <select name='region' id='region'>
-                            <?php foreach ($regiones as $fila) {  
+                            <?php foreach ($regiones as $fila) {
                                 $opcion = $fila['region'];
                                 echo "<option value='$opcion'>$opcion</option>";
                             } ?>
                         </select>
                         <input type="submit" value="Enviar">
                     </div>
-                <?php } 
+                <?php }
                  else {
                     echo 'No hay regiones disponibles.';
                 } ?>
