@@ -26,7 +26,7 @@
                 $id_tienda = intval($_GET['id_tienda']);
             }
             $query = "SELECT productos.id, productos.nombre, stock.descuento, productos.precio, (productos.precio*((100-stock.descuento)*0.01)) as nuevo_precio,
-            productos.numero_cajas, productos.tipo, stock.id_tienda
+            productos.numero_cajas, productos.tipo, stock.id_tienda, stock.cantidad
             FROM productos, stock
             WHERE productos.id = stock.id_producto AND productos.tipo = '$tipo_producto' AND stock.id_tienda = '$id_tienda';";
             $result = $db2 -> prepare($query);
@@ -49,6 +49,7 @@
             <th>Número Cajas</th>
             <th>Tipo</th>
             <th>Id Tienda</th>
+            <th>Cantidad disponible</th>
             <th> </th>
             <th> </th>
             </tr>
@@ -57,7 +58,7 @@
             <?php
             foreach ($dataCollected as $producto) {
                 echo "<tr>";
-                for ($i = 0; $i < 8; $i++) {
+                for ($i = 0; $i < 9; $i++) {
                     echo "<td>$producto[$i]</td> ";
                 }
                 echo "<td><a href='form_actualizar_stock.php?id_producto={$producto[0]}&id_tienda={$producto[7]}&tipo={$producto[6]}' class='button'>Actualizar Stock</a></td>";
