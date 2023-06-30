@@ -34,8 +34,7 @@ require("./config/conexion.php");
                 } ?>
             </form>
         </div>
-
-
+        <br><br><br><br><br><br><br>
     </body>
 
 </html>

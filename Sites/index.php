@@ -32,14 +32,6 @@ include('./templates/header.html');
             </div>
 
         </div>
-        <br>
-  <br>
-  <br>
-
-  <br>
-  <br>
-  <br>
-  <br>
-
+        <br><br><br><br><br><br><br>
     </body>
 </html>
