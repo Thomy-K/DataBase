@@ -17,17 +17,18 @@ include('./templates/header.html');
             </div>
 
 
+            <div class='container'>
+                <?php if (!isset($_SESSION['username'])) { ?>
+                    <form  action='./queries/login.php' method='GET'>
+                        <input class='btn' type='submit' value='Iniciar sesión'>
+                    </form>
 
-            <?php if (!isset($_SESSION['username'])) { ?>
-                <form  action='./queries/login.php' method='GET'>
-                    <input class='btn' type='submit' value='Iniciar sesión'>
-                </form>
-
-            <?php } else { ?>
-                <form action='./queries/logout.php' method="post">
-                    <input type="submit" value="Cerrar sesión">
-                </form>
-            <?php } ?>
+                <?php } else { ?>
+                    <form action='./queries/logout.php' method="post">
+                        <input type="submit" value="Cerrar sesión">
+                    </form>
+                <?php } ?>
+            </div>
      
   
 
