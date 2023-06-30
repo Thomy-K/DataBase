@@ -15,6 +15,7 @@ $tipo = $_GET['tipo'];
             <input type="number" name="n_cantidad" placeholder="Cantidad Actualizada" required autofocus>
             <input type="hidden" name="id_producto" value="<?php echo $id_producto; ?>">
             <input type="hidden" name="id_tienda" value="<?php echo $id_tienda; ?>">
+            <input type="hidden" name="id_tienda" value="<?php echo $tipo; ?>">
             <button type="submit" name="Actualizar">Establecer Stock</button>
         </form>
     </body>
