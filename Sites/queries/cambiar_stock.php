@@ -10,7 +10,7 @@
 <?php
     try {
         $msg = '';
-        if (isset($_POST['actualizar']) && !empty($_POST['n_cantidad']) && intval($_POST['n_cantidad']) >= 0)
+        if (!empty($_POST['n_cantidad']) && intval($_POST['n_cantidad']) >= 0)
         {
             $n_cantidad = intval($_POST['n_cantidad']);
 
