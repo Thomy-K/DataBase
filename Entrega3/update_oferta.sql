@@ -1,32 +1,24 @@
 CREATE OR REPLACE FUNCTION
-rellenar_usuarios_2(id_cliente int, nombre_cliente varchar(60), rol varchar(7))
 
+-- declaramos la función y sus argumentos
+update_oferta (n_cantidad int, id_t int, id_p int)
+
+-- declaramos lo que retorna, en este caso un booleano
 RETURNS BOOLEAN AS $$
 
-DECLARE
-contra varchar;
 
+
+-- definimos nuestra función
 BEGIN
-    
     -- si el id en el argumento no está en la tabla, agregamos el pokemon
     -- notar que ahora debemos agregar el dato de la columna generation en el values a insertar
-    IF id_cliente NOT IN (SELECT id from usuarios) THEN
-
-        IF rol = 'Cliente' THEN
-            SET contra = CONCAT(nombre_cliente, '_', CAST(id_cliente AS VARCHAR));
-        ELSE
-            SET contra = 'admin';
-        END IF;
-
-        INSERT INTO usuarios values(id_cliente, contra, rol);
-
+    IF id_p IN (SELECT id_producto from stock where id_tienda = id_t) THEN
+        UPDATE stock SET descuento = n_cantidad WHERE id_tienda = id_t AND id_producto = id_p;
         -- retornamos true si se agregó el valor
         RETURN TRUE;
-        
     ELSE
         -- y false si no se agregó
         RETURN FALSE;
-
     END IF;
 
 
