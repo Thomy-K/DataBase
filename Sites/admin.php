@@ -34,6 +34,10 @@ require("./config/conexion.php");
                 } ?>
             </form>
         </div>
+        <br><br>
+        <div class='container'>
+            <a href="./index.php" class="btn">Volver atrás</a>
+        </div>
         <br><br><br><br><br><br><br>
     </body>
 

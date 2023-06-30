@@ -31,6 +31,18 @@ include('./templates/header.html');
                 <?php } ?>
             </div>
 
+            <div class='container'>
+                <?php if (isset($_SESSION['rol'])) { ?>
+                    <?php if ($_SESSION['rol'] == "Admin") { ?>
+                        <a href="./admin.php" class="btn">Administrar tiendas y productos</a>
+                    <?php }
+                    else { ?>
+                        <a href="./cliente.php" class="btn">Administrar tiendas y productos</a>
+                    <?php } ?>
+
+                <?php } ?>
+            </div>
+
         </div>
         <br><br><br><br><br><br><br>
     </body>

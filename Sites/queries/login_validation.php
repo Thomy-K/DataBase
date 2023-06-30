@@ -32,13 +32,15 @@
                 if ($tipo_usuario == 'Admin') {
                     // El usuario es un administrador, redirigir a admin.php
                     header("Location: ../admin.php?msg=$msg");
+                    $_SESSION['rol'] = "Admin";
                     exit();
                 } else {
                     // El usuario es un cliente, redirigir a clientes.php
+                    $_SESSION['rol'] = "Cliente";
                     header("Location: ../cliente.php?msg=$msg");
                     exit();
                 }
-            } 
+            }
             else {
                 // Las credenciales son válidas pero no se pudo obtener el tipo de usuario
                 $msg = "Error al obtener el tipo de usuario";

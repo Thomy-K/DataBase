@@ -31,7 +31,7 @@
 
     <?php echo "<h1 class='title'> Tiendas de la región: $region_seleccionada </h1>" ?>
 
-    <table class='table'>
+    <table class='table' style="border-collapse: separate; border-spacing: 10px;">
         <thead>
             <tr>
             <th>Id</th>
@@ -56,6 +56,10 @@
             ?>
         </tbody>
     </table>
+    <br>
+    <div class='container'>
+        <a href="../admin.php" class="btn">Volver atrás</a>
+    </div>
     </body>
 
 </html>

@@ -1,12 +1,19 @@
 <html>
 
     <body>
+
+    <style>
+        td, th {
+            text-align: center;
+        }
+    </style>
+
     <?php
 
 
         require("../config/conexion.php");
         include('../templates/header.html');
-        
+
         try {
             $query = "SELECT id, nombre FROM clientes WHERE id NOT IN (SELECT id FROM usuarios);";
             $result = $db -> prepare($query);
@@ -16,7 +23,7 @@
             foreach ($clientes as $cliente) {
                 $id_cliente = $cliente['id'];
                 $username = 'user' . $id_cliente;
-                $password = 'clave' . $id_cliente; 
+                $password = 'clave' . $id_cliente;
 
                 $query = "INSERT INTO usuarios (id, username, contrasena, tipo) VALUES ($id_cliente, '$username', '$password', '$tipo_cliente');";
                 $result = $db -> prepare($query);
@@ -53,8 +60,8 @@
         }
     ?>
 
-    
-    <table class='table'>
+
+    <table class='table' style="border-collapse: separate; border-spacing: 10px;">
         <thead>
             <tr>
             <th>Id</th>
@@ -64,14 +71,14 @@
             </tr>
         </thead>
         <tbody>
-            <?php 
-            foreach ($usuarios as $usuario) { 
+            <?php
+            foreach ($usuarios as $usuario) {
                 echo "<tr>";
                 for ($i = 0; $i < 4; $i++) {
                     echo "<td>$usuario[$i]</td> ";
                 }
                 echo "</tr>";
-            } 
+            }
             ?>
         </tbody>
     </table>
