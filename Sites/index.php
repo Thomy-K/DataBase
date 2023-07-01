@@ -1,49 +1,53 @@
 <?php
-
 session_start();
 include('./templates/header.html');
-
+$user = $_SESSION["username"];
 ?>
-    <body>
-        <div class='main'>
 
-            <h1 class='title'>Entrega 3</h1>
+<body>
+  <h1 align="center">Consultas y Compras </h1>
+  <br>
 
+  <h3 align="center"> Revisar compra</h3>
 
-            <div class='container'>
-                <h3>Importar usuarios</h3>
-                <form  action='./queries/poblar_usuarios.php' method='GET'>
-                    <input class='btn' type='submit' value='Importar'>
-                </form>
-            </div>
+  <form align="center" action="queries/buscar_compras.php" method="get">
+    Compras realizadas:
+    <input type="hidden" name="usuario" value="<?php echo $user;?>">
+    <input type="submit" value="Buscar">
+  </form>
+  
+  <br>
+  <br>
+  <br>
 
-            <br><br>
-            <div class='container'>
-                <?php if (!isset($_SESSION['username'])) { ?>
-                    <form  action='./queries/login.php' method='GET'>
-                        <input class='btn' type='submit' value='Iniciar sesión'>
-                    </form>
+  <h3 align="center"> Realizar compra</h3>
 
-                <?php } else { ?>
-                    <form action='./queries/logout.php' method="post">
-                        <input class='btn' type="submit" value="Cerrar sesión">
-                    </form>
-                <?php } ?>
-            </div>
+  <form align="center" action="queries/prod_compra.php" method="post">
+    Producto:
+    <input type="text" name="nombre">
+    <br/><br/>
+    <input type="submit" value="Buscar">
+  </form>
 
-            <div class='container'>
-                <?php if (isset($_SESSION['rol'])) { ?>
-                    <?php if ($_SESSION['rol'] == "Admin") { ?>
-                        <a href="./admin.php" class="btn">Administrar tiendas y productos</a>
-                    <?php }
-                    else { ?>
-                        <a href="./cliente.php" class="btn">Administrar tiendas y productos</a>
-                    <?php } ?>
+  <h4 align="center"> Ingresar fecha despacho</h3>
 
-                <?php } ?>
-            </div>
-
-        </div>
-        <br><br><br><br><br><br><br>
-    </body>
+  <form align="center" action="queries/fin_compra.php" method="post">
+    Fecha:
+    <input type="date" name="fecha">
+    <input type="hidden" name="usuario" value="<?php echo $user;?>">
+    <br/><br/>
+    <input type="submit" value="Finalizar compra">
+  </form>
+  
+  <br>
+  <br>
+  <br>
+  <form align="center" action="../index.php" method="get">
+    <input type="submit" value="Volver">
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+</body>
 </html>
